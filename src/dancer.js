@@ -17,7 +17,7 @@ Dancer.prototype.lineUp = function() {
       'align-items': 'center',
       'justify-content': 'center',
       'margin': '0 5px',
-      'left': '20px'
+      'left': '20px',
       // 'position': 'relative',
       // 'justify-content': 'space-between',
       // 'display': 'inline-block',
@@ -44,35 +44,44 @@ Dancer.prototype.setPosition = function() {
   this.$node.css(styleSettings);
 };
 
-// var makeDancer = function(top, left, timeBetweenSteps) {
+Dancer.prototype.interact = function() {
+  for (let i = 0; i < window.dancers.length; i++) {
+    let neighbors = [];
+    var x1 = window.dancers[i].left;
+    var y1 = window.dancers[i].top;
+    console.log('x, y:', x, y);
+    for (let j = 0; j < window.dancers.length; j++) {
+      if (i !== j) {
+        var x2 = window.dancers[j].left;
+        var y2 = window.dancers[j].top;
+        var x = x1 - x2;
+        // console.log('x:', x);
+        var y = y1 - y2;
+      }
+      //apply pythagroian theorum between two points
+      var c = Math.sqrt((x * x) + (y * y));
+      if (c < 250) {
+        neighbors.push(window.dancers[j]);
+      }
+    }
+    for (let k = 0; k < neighbors.length; k++) {
+      var originalx = neighbors[k].left
+      var originaly = neighbors[k].top
+      neighbors[k].left = x
+      neighbors[k].top = y
+      window.dancers[i].left = originalx
+      window.dancers[i].top = originaly
+      neighbors[k].$nodes.css({
 
-//   var dancer = {};
+      });
+    }
 
-//   // use jQuery to create an HTML <span> tag
-//   dancer.$node = $('<span class="dancer"></span>');
-
-  // dancer.step = function() {
-  //   // the basic dancer doesn't do anything interesting at all on each step,
-  //   // it just schedules the next step
-  //   setTimeout(dancer.step, timeBetweenSteps);
-  // };
-  // dancer.step();
-
-//   dancer.setPosition = function(top, left) {
-//     // Use css top and left properties to position our <span> tag
-//     // where it belongs on the page. See http://api.jquery.com/css/
-//     //
-//     var styleSettings = {
-//       top: top,
-//       left: left
-//     };
-//     dancer.$node.css(styleSettings);
-//   };
-
-//   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
-//   // this one sets the position to some random default point within the body
-//   dancer.setPosition(top, left);
-
-//   return dancer;
-// };
+    //loop over one more time
+      //using values of the other dancer's x -x result and y-y result, if the pythagorium therum value is less than ___, push to array
+  // later using arry, set a css value to do somehting
+    //find closeset distances
+    // window.dancers[i].$node.css({
+    // });
+  }
+};
 

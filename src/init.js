@@ -27,11 +27,14 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    window.dancers.push(dancer);
-    // var $profilePhoto = $('<img class="profile-photo">');
-    // var photoSource = 'assets/' + 'PepeDancer.gif';
-    // $profilePhoto.
 
+    window.dancers.push(dancer);
+    console.log(window.dancers);
+
+    var $profilePhoto = $('<img class="profile-photo">');
+    var photoSource = 'assets/' + dancerMakerFunctionName + '.gif';
+    $profilePhoto.attr('src', photoSource);
+    (dancer.$node).append($profilePhoto);
 
     $('body').append(dancer.$node);
   });
@@ -40,26 +43,7 @@ $(document).ready(function() {
     // for (let )
     Dancer.prototype.lineUp();
   });
-  // $('.addPepeButton').on('click', function(event) {
 
-  //   var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
-  //   // get the maker function for the kind of dancer we're supposed to make
-  //   var dancerMakerFunction = window[dancerMakerFunctionName];
-
-  //   // make a dancer with a random position
-
-  //   var dancer = new dancerMakerFunction(
-  //     $("body").height() * Math.random(),
-  //     $("body").width() * Math.random(),
-  //     Math.random() * 1000
-  //   );
-  //   $('body').append(dancer.$node);
-  //   $(dancer.$node).hover(makeBigger, returnToOriginalSize);
-
-  //   window.dancers.push(dancer);
-
-  // });
 
 
   $(document).scroll(function(event) {
@@ -69,21 +53,33 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
-    var dancerMakerFunctionName1 = "NotADancer";
-    console.log(dancerMakerFunctionName1);
+    var dancerMakerFunctionName = 'NotADancer';
 
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction1 = window[dancerMakerFunctionName1];
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+    // console.log(dancerMakerFunction);
 
     // make a dancer with a random position
 
-    var dancer1 = new dancerMakerFunction1(
+    var dancer1 = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+
+    window.dancers.push(dancer1);
+
+    var $profilePhoto = $('<img class="profile-photo">');
+    var photoSource = 'assets/' + dancerMakerFunctionName + '.gif';
+    $profilePhoto.attr('src', photoSource);
+    (dancer1.$node).append($profilePhoto);
     $('body').append(dancer1.$node);
-    window.dancers.push(dancer);
+  });
+
+
+
+  $('.addInteractButton').on('click', function(event) {
+    Dancer.prototype.interact();
   });
 });
 
