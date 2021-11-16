@@ -25,3 +25,20 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+/* .pepe{
+  border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+} */
+.notadancer{
+  border:10px solid green;
+  border-radius:10px;
+  position:relative;
+}
+
+/* .line{
+  float:left;
+  padding: 5px 12px;
+  display: block;
+
+} */
