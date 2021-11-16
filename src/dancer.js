@@ -13,12 +13,11 @@ Dancer.prototype.lineUp = function() {
   for (let i = 0; i < window.dancers.length; i++) {
     // window.dancers[i].$node = $('<span class="dancer line"></span>');
     window.dancers[i].$node.css({
-      'border-color': 'blue',
       'display': 'flex',
       'align-items': 'center',
       'justify-content': 'center',
       'margin': '0 5px',
-      'left': '20px',
+      'left': '20px'
       // 'position': 'relative',
       // 'justify-content': 'space-between',
       // 'display': 'inline-block',
