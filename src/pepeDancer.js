@@ -8,10 +8,10 @@ PepeDancer.prototype = Object.create(Dancer.prototype);
 PepeDancer.prototype.constructor = PepeDancer;
 // console.log(PepeDancer);
 
-PepeDancer.prototype.step = function() {
-  BlinkyDancer.prototype.step.call(this);
-  this.$node.toggle();
-};
+// PepeDancer.prototype.step = function() {
+//   BlinkyDancer.prototype.step.call(this);
+//   this.$node.toggle();
+// };
 
 var makeBigger = function() {
   $(this).css({height: '+=25% !important', width: '+=25% !important'});

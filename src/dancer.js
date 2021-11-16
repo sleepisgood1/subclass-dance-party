@@ -65,14 +65,15 @@ Dancer.prototype.interact = function() {
       }
     }
     for (let k = 0; k < neighbors.length; k++) {
-      var originalx = neighbors[k].left
-      var originaly = neighbors[k].top
-      neighbors[k].left = x
-      neighbors[k].top = y
-      window.dancers[i].left = originalx
-      window.dancers[i].top = originaly
+      // var originalx = neighbors[k].left
+      // var originaly = neighbors[k].top
+      // neighbors[k].left = x
+      // neighbors[k].top = y
+      // window.dancers[i].left = originalx
+      // window.dancers[i].top = originaly
       neighbors[k].$nodes.css({
-
+        'transform': 'scale(0)',
+        'color': 'rgba(0,0,0,0)',
       });
     }
 
