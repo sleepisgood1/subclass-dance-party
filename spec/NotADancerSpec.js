@@ -34,10 +34,29 @@ describe('NotADancer', function() {
 
   describe('scroll', function() {
     it('should add NotADancers on scroll', function() {
-      sinon.spy(notADancer, 'scroll');
       expect(window.dancers.indexOf('NotADancer')).to.be.equal(-1);
-      $(document).scroll();
-      expect(window.dancers.indexOf('NoADancer')).to.be.greaterThan(-1);
+      $('.addNotADancer').scroll();
+      for (let i = 0; i < window.dancers.length; i++) {
+        expect(window.dancers[i].name).to.be.equal('NotADancer');
+      }
+    });
+  });
+
+  describe('lineUp', function() {
+    it('should line up dancers upon LineEmUp click', function () {
+      $('.addLineUpButton').click();
+      for (let i = 0; i < window.dancers.length; i++) {
+        expect(window.dancers[i].$node.css.left).to.be.equal('20px');
+      }
+    });
+  });
+
+  describe('kill dancers', function() {
+    it('it should kill dancers and not NotADancer on click', function () {
+      $('.addInteractButton').click();
+      for (let i = 0; i < window.dancers.length; i++) {
+        expect(window.dancers[i].name).to.not.equal('NotADancer');
+      }
     });
   });
 

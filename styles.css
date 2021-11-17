@@ -4,7 +4,6 @@ body, html{
 }
 body{
   margin: 0px;
-  /* background-color:#444; */
   font-size: 18px;
   background-image: URL('assets/dancefloor.jpeg');
   width: 100%;
@@ -22,13 +21,16 @@ body, a:link, a:visited, a:active{
 .addLineUpButton{
   background-color: black;
 }
+
 .addInteractButton{
   background-color: black;
 }
+
 .title{
   background-color:black;
   text-align: center;
 }
+
 .topbar{
   height:200px;
   background-color: black;
@@ -37,9 +39,11 @@ body, a:link, a:visited, a:active{
   text-align:center;
   padding-top: 15px;
 }
+
 ul {
   list-style-type: none !important;
 }
+
 li ul{
   background-color: black;
   list-style: none;
@@ -53,27 +57,9 @@ li::before{
   list-style: none;
 }
 .dancer{
-  /* border:10px solid red; */
-  /* border-radius:10px; */
   position:absolute;
 }
-/* .pepe{
-  border:10px solid blue;
-  border-radius:10px;
-  position:absolute;
-} */
-/* .notadancer{
-  border:10px solid green;
-  border-radius:10px;
-  position:relative; */
-/* } */
 
-/* .line{
-  float:left;
-  padding: 5px 12px;
-  display: block;
-
-} */
 .profile-photo{
   max-height: 200px;
   max-width: auto;

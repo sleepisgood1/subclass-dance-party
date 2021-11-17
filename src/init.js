@@ -39,7 +39,6 @@ $(document).ready(function() {
   });
 
   $('.addLineUpButton').on('click', function(event) {
-    // for (let )
     Dancer.prototype.lineUp();
   });
 

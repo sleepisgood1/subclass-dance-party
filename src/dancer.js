@@ -6,25 +6,15 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition();
-  // window.dancers.push(this);
 };
 
 Dancer.prototype.lineUp = function() {
+  console.log(window.dancers);
   for (let i = 0; i < window.dancers.length; i++) {
-    // window.dancers[i].$node = $('<span class="dancer line"></span>');
-    window.dancers[i].$node.css({
-      'display': 'flex',
-      'align-items': 'center',
-      'justify-content': 'center',
-      'margin': '0 5px',
-      'left': '20px',
-      // 'position': 'relative',
-      // 'justify-content': 'space-between',
-      // 'display': 'inline-block',
-      // 'margin': '0'
-      // 'width': 'center',
-      // 'border': '5px'
-      // 'margin-right': 'auto',
+    var dancer = window.dancers[i];
+    dancer.left = 20;
+    dancer.$node.css({
+      left: dancer.left,
     });
   }
 };
@@ -49,7 +39,6 @@ Dancer.prototype.interact = function() {
     let neighbors = [];
     var x1 = window.dancers[i].left;
     var y1 = window.dancers[i].top;
-    console.log('x, y:', x, y);
     for (let j = 0; j < window.dancers.length; j++) {
       if (i !== j) {
         var x2 = window.dancers[j].left;
@@ -61,17 +50,14 @@ Dancer.prototype.interact = function() {
       //apply pythagroian theorum between two points
       var c = Math.sqrt((x * x) + (y * y));
       if (c < 250) {
-        neighbors.push(window.dancers[j]);
+        if (window.dancers[j].name !== 'NotADancer') {
+          neighbors.push(window.dancers[j]);
+        }
       }
     }
+    console.log('neighbors:', neighbors);
     for (let k = 0; k < neighbors.length; k++) {
-      // var originalx = neighbors[k].left
-      // var originaly = neighbors[k].top
-      // neighbors[k].left = x
-      // neighbors[k].top = y
-      // window.dancers[i].left = originalx
-      // window.dancers[i].top = originaly
-      neighbors[k].$nodes.css({
+      neighbors[k].$node.css({
         'transform': 'scale(0)',
         'color': 'rgba(0,0,0,0)',
       });

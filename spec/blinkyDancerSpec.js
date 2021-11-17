@@ -31,4 +31,13 @@ describe('blinkyDancer', function() {
       expect(blinkyDancer.step.callCount).to.be.equal(2);
     });
   });
+
+  describe('lineUp', function() {
+    it('should line up dancers upon LineEmUp click', function () {
+      $('.addLineUpButton').click();
+      for (let i = 0; i < window.dancers.length; i++) {
+        expect(window.dancers[i].$node.css.left).to.be.equal('20px');
+      }
+    });
+  });
 });
