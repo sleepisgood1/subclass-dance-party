@@ -5,7 +5,7 @@ describe('blinkyDancer', function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
-    blinkyDancer = makeBlinkyDancer(10, 20, timeBetweenSteps);
+    blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
   it('should have a jQuery $node object', function() {
@@ -29,6 +29,15 @@ describe('blinkyDancer', function() {
 
       clock.tick(timeBetweenSteps);
       expect(blinkyDancer.step.callCount).to.be.equal(2);
+    });
+  });
+
+  describe('lineUp', function() {
+    it('should line up dancers upon LineEmUp click', function () {
+      $('.addLineUpButton').click();
+      for (let i = 0; i < window.dancers.length; i++) {
+        expect(window.dancers[i].$node.css.left).to.be.equal('20px');
+      }
     });
   });
 });
